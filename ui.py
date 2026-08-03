@@ -31,7 +31,7 @@ CSS = r"""
   --pot-red: #d83a3a;
   --pot-red-soft: #ffeded;
   --pot-shadow: 0 7px 20px rgba(15, 23, 42, .045);
-  --drawer-offset-top: 55px;
+  --drawer-offset-top: 48px;
 }
 
 html, body, [class*="css"] { font-family: "Inter", "Segoe UI", sans-serif; }
@@ -279,18 +279,109 @@ div[data-testid="stPills"] button[aria-pressed="true"] { background: linear-grad
 .portfolio-badge.other { background: #f2f3f6; color: #626b78; }
 .drawer-empty { padding: 1rem; color: var(--pot-muted); text-align: center; font-size: .7rem; }
 
-
-@media (max-width: 1000px) {
-  :root { --drawer-offset-top: 0px; }
-  .instant-drawer .satker-drawer { width: 100vw !important; min-width: 0 !important; height: 100vh !important; border-top-left-radius: 0 !important; }
-  .instant-drawer .drawer-overlay { right: 0 !important; }
-}
-
 @media (max-width: 1000px) {
   .metric-grid { grid-template-columns: 1fr; }
   .total-bar { grid-template-columns: 1fr; gap: .22rem; }
   .satker-drawer { width: 100vw !important; max-width: 100vw !important; min-width: 0 !important; }
 }
+
+
+/* =====================================================
+   DARK NAVY SIDEBAR — same content, stronger visual style
+   ===================================================== */
+[data-testid="stSidebar"] {
+  background:
+    radial-gradient(circle at 22% 0%, rgba(37,99,235,.22), transparent 32%),
+    linear-gradient(180deg, #0f172a 0%, #111c33 58%, #16213a 100%) !important;
+  border-right: 1px solid rgba(148,163,184,.20) !important;
+  box-shadow: 8px 0 24px rgba(15,23,42,.10) !important;
+}
+[data-testid="stSidebar"] .block-container {
+  padding: 1.15rem 1rem 1.4rem !important;
+}
+[data-testid="stSidebar"] h1,
+[data-testid="stSidebar"] h2,
+[data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] h4,
+[data-testid="stSidebar"] p,
+[data-testid="stSidebar"] label,
+[data-testid="stSidebar"] small,
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] * {
+  color: #f8fafc !important;
+  -webkit-text-fill-color: #f8fafc !important;
+}
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"],
+[data-testid="stSidebar"] [data-testid="stCaptionContainer"] *,
+[data-testid="stSidebar"] .stCaption,
+[data-testid="stSidebar"] .stCaption * {
+  color: #94a3b8 !important;
+  -webkit-text-fill-color: #94a3b8 !important;
+}
+[data-testid="stSidebar"] hr {
+  border-color: rgba(148,163,184,.24) !important;
+  margin: 1rem 0 !important;
+}
+[data-testid="stSidebar"] .stButton {
+  margin-bottom: .22rem !important;
+}
+[data-testid="stSidebar"] .stButton > button {
+  justify-content: flex-start !important;
+  width: 100% !important;
+  min-height: 40px !important;
+  padding: 0 .82rem !important;
+  border-radius: 10px !important;
+  font-size: .70rem !important;
+  font-weight: 760 !important;
+  letter-spacing: .005em !important;
+  transition: transform .15s ease, background .15s ease, border-color .15s ease, box-shadow .15s ease !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-secondary"] {
+  background: rgba(255,255,255,.055) !important;
+  border: 1px solid rgba(148,163,184,.28) !important;
+  color: #e2e8f0 !important;
+  box-shadow: none !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-secondary"] * {
+  color: #e2e8f0 !important;
+  -webkit-text-fill-color: #e2e8f0 !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-secondary"]:hover {
+  transform: translateX(2px) !important;
+  background: rgba(59,130,246,.15) !important;
+  border-color: rgba(96,165,250,.58) !important;
+  box-shadow: 0 6px 16px rgba(15,23,42,.22) !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-primary"] {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 58%, #3b82f6 100%) !important;
+  border: 1px solid rgba(147,197,253,.48) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 18px rgba(37,99,235,.30) !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-primary"] * {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+}
+[data-testid="stSidebar"] [data-testid="stBaseButton-primary"]:hover {
+  transform: translateX(2px) !important;
+  background: linear-gradient(135deg, #1e40af, #2563eb 62%, #60a5fa) !important;
+  box-shadow: 0 10px 22px rgba(37,99,235,.38) !important;
+}
+[data-testid="stSidebar"] [data-testid="stAlert"] {
+  background: rgba(245,158,11,.12) !important;
+  border: 1px solid rgba(251,191,36,.28) !important;
+}
+[data-testid="stSidebar"] [data-testid="stAlert"] * {
+  color: #fde68a !important;
+  -webkit-text-fill-color: #fde68a !important;
+}
+[data-testid="stSidebar"]::-webkit-scrollbar { width: 7px; }
+[data-testid="stSidebar"]::-webkit-scrollbar-track { background: rgba(15,23,42,.35); }
+[data-testid="stSidebar"]::-webkit-scrollbar-thumb {
+  background: rgba(148,163,184,.45);
+  border-radius: 999px;
+}
+[data-testid="stSidebar"]::-webkit-scrollbar-thumb:hover { background: rgba(148,163,184,.68); }
+
 </style>
 """
 
