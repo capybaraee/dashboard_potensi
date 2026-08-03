@@ -229,7 +229,7 @@ with st.sidebar:
     st.divider()
 
     overview_type = "primary" if st.session_state.active_page == "OVERVIEW" else "secondary"
-    if st.button("📊  Overview Semua AM", use_container_width=True, type=overview_type):
+    if st.button("Overview Semua AM", use_container_width=True, type=overview_type):
         st.query_params.clear()
         st.session_state.active_page = "OVERVIEW"
         st.rerun()
