@@ -31,6 +31,7 @@ CSS = r"""
   --pot-red: #d83a3a;
   --pot-red-soft: #ffeded;
   --pot-shadow: 0 7px 20px rgba(15, 23, 42, .045);
+  --drawer-offset-top: 48px;
 }
 
 html, body, [class*="css"] { font-family: "Inter", "Segoe UI", sans-serif; }
@@ -202,7 +203,7 @@ div[data-testid="stPills"] button[aria-pressed="true"] { background: linear-grad
 }
 .instant-drawer .drawer-overlay {
   position: fixed !important;
-  top: 0 !important;
+  top: var(--drawer-offset-top) !important;
   right: min(720px,46vw) !important;
   bottom: 0 !important;
   left: 0 !important;
@@ -212,15 +213,17 @@ div[data-testid="stPills"] button[aria-pressed="true"] { background: linear-grad
 }
 .instant-drawer .satker-drawer {
   position: fixed !important;
-  top: 0 !important;
+  top: var(--drawer-offset-top) !important;
   right: 0 !important;
   z-index: 99990 !important;
   width: min(720px,46vw) !important;
   min-width: 500px !important;
-  height: 100vh !important;
+  height: calc(100vh - var(--drawer-offset-top)) !important;
   overflow-y: auto !important;
   background: #fff !important;
   border-left: 1px solid #d7deea !important;
+  border-top: 1px solid #d7deea !important;
+  border-top-left-radius: 14px !important;
   box-shadow: -18px 0 42px rgba(20,35,65,.18) !important;
   transform: translateX(100%);
 }
@@ -234,7 +237,7 @@ div[data-testid="stPills"] button[aria-pressed="true"] { background: linear-grad
 .satker-row-anchor { scroll-margin-top: 5rem; }
 .drawer-filter-shell { min-height: 100%; }
 .drawer-filter-radio { position: absolute; opacity: 0; pointer-events: none; }
-.drawer-top { position: sticky; top: 0; z-index: 8; padding: .7rem .95rem .68rem; background: linear-gradient(180deg,#fff 90%,rgba(255,255,255,.96)); border-bottom: 1px solid var(--pot-border); }
+.drawer-top { position: sticky; top: 0; z-index: 8; padding: .58rem .95rem .58rem; background: linear-gradient(180deg,#fff 90%,rgba(255,255,255,.96)); border-bottom: 1px solid var(--pot-border); }
 .drawer-actions { display: flex; align-items: center; justify-content: space-between; gap: .55rem; margin-bottom: .5rem; }
 .drawer-back { display: inline-flex; align-items: center; min-height: 28px; padding: 0 .64rem; background: #fff; border: 1px solid #d8e0ec; border-radius: 999px; color: #334766; text-decoration: none; font-size: .63rem; font-weight: 800; }
 .drawer-back:hover { background: #f5f8ff; border-color: #9eb4e3; color: var(--pot-blue); }
@@ -275,6 +278,13 @@ div[data-testid="stPills"] button[aria-pressed="true"] { background: linear-grad
 .portfolio-badge.media { background: #e9f8f5; color: #0d756b; }
 .portfolio-badge.other { background: #f2f3f6; color: #626b78; }
 .drawer-empty { padding: 1rem; color: var(--pot-muted); text-align: center; font-size: .7rem; }
+
+
+@media (max-width: 1000px) {
+  :root { --drawer-offset-top: 0px; }
+  .instant-drawer .satker-drawer { width: 100vw !important; min-width: 0 !important; height: 100vh !important; border-top-left-radius: 0 !important; }
+  .instant-drawer .drawer-overlay { right: 0 !important; }
+}
 
 @media (max-width: 1000px) {
   .metric-grid { grid-template-columns: 1fr; }
