@@ -31,7 +31,7 @@ CSS = r"""
   --pot-red: #d83a3a;
   --pot-red-soft: #ffeded;
   --pot-shadow: 0 7px 20px rgba(15, 23, 42, .045);
-  --drawer-offset-top: 48px;
+  --drawer-offset-top: 58px;
 }
 
 html, body, [class*="css"] { font-family: "Inter", "Segoe UI", sans-serif; }
